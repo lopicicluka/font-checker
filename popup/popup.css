@@ -1,0 +1,175 @@
+:root {
+  --bg: #0f172a;
+  --bg-elevated: #1e293b;
+  --border: #475569;
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --accent: #0f766e;
+  --accent-bright: #5eead4;
+  --accent-hover: #0d9488;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 300px;
+  padding: 14px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.4 "Segoe UI", system-ui, sans-serif;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--accent-bright);
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.section--last {
+  border-bottom: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 6px 0;
+}
+
+.label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.hint {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.toggle__slider {
+  position: absolute;
+  inset: 0;
+  background: #334155;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.toggle__slider::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f8fafc;
+  transition: transform 0.15s ease;
+}
+
+.toggle input:checked + .toggle__slider {
+  background: var(--accent);
+}
+
+.toggle input:checked + .toggle__slider::after {
+  transform: translateX(18px);
+}
+
+.select,
+.input {
+  width: 100%;
+  margin-top: 4px;
+  padding: 7px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font: inherit;
+}
+
+.select:focus,
+.input:focus {
+  outline: 2px solid #14b8a6;
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.mode {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.mode__btn {
+  padding: 7px 8px;
+  border-radius: 6px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+
+.mode__btn.is-active {
+  background: var(--accent);
+  border-color: #14b8a6;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #334155;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+
+.btn:hover {
+  background: #475569;
+}
+
+.status {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: #fbbf24;
+}

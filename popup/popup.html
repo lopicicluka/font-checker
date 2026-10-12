@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Font Checker</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>Font Checker</h1>
+      <p class="subtitle">Inspect &amp; highlight fonts on the page</p>
+    </header>
+
+    <section class="section">
+      <div class="row">
+        <span>Floating panel</span>
+        <label class="toggle">
+          <input type="checkbox" id="panelVisible" />
+          <span class="toggle__slider"></span>
+        </label>
+      </div>
+      <div class="row">
+        <span>Inspect mode</span>
+        <label class="toggle">
+          <input type="checkbox" id="inspectEnabled" />
+          <span class="toggle__slider"></span>
+        </label>
+      </div>
+      <p class="hint">Hover for a tooltip, click to pin. Esc stops inspect.</p>
+    </section>
+
+    <section class="section">
+      <label class="label" for="fontSelect">Target font</label>
+      <select id="fontSelect" class="select">
+        <option value="">— Select detected font —</option>
+      </select>
+      <input
+        id="targetFont"
+        class="input"
+        type="text"
+        placeholder="Or type a font name"
+        autocomplete="off"
+      />
+      <button type="button" class="btn" id="refreshFonts">Refresh font list</button>
+    </section>
+
+    <section class="section">
+      <div class="row">
+        <span>Highlight fonts</span>
+        <label class="toggle">
+          <input type="checkbox" id="highlightEnabled" />
+          <span class="toggle__slider"></span>
+        </label>
+      </div>
+      <div class="mode">
+        <button type="button" class="mode__btn" data-mode="match" id="modeMatch">Match</button>
+        <button type="button" class="mode__btn" data-mode="not-match" id="modeNotMatch">
+          Not match
+        </button>
+      </div>
+      <p class="hint">Match highlights the target. Not match highlights everything else.</p>
+    </section>
+
+    <section class="section section--last">
+      <button type="button" class="btn" id="clearAll">Clear / reset</button>
+      <p id="status" class="status" hidden></p>
+    </section>
+
+    <script src="../shared/fonts.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

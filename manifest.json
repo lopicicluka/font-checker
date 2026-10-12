@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Font Checker",
+  "version": "1.0.0",
+  "description": "Inspect fonts on any page and highlight matching or non-matching typefaces.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Font Checker",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["shared/fonts.js", "content/content.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
